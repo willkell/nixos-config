@@ -59,4 +59,14 @@
     enable = true;
     enableBashIntegration = true;
   };
+  programs.eza = {
+    enable = true;
+    colors = "always";
+    enableBashIntegration = true;
+    icons = "auto";
+  };
+  programs.bat = {
+    enable = true;
+  };
+
 }
