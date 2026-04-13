@@ -54,4 +54,9 @@
         tree-sitter-norg
       ];
   };
+
+  programs.zoxide = {
+    enable = true;
+    enableBashIntegration = true;
+  };
 }
