@@ -39,6 +39,23 @@
   # Set your time zone.
   time.timeZone = "America/Chicago";
 
+  # audio
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
+  # xdg portal, let apps open websites
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+    config.common.default = "*";
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -161,8 +178,8 @@
 
   programs.steam = {
     enable = true;
-    remotePlay.openFirewall = true; 
-    dedicatedServer.openFirewall = true; 
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
   };
 
   # 1password
