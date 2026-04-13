@@ -86,15 +86,13 @@
     ];
   };
 
-  # programs.firefox.enable = true;
+  programs.firefox.enable = true;
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
     wget
     pkgs-unstable.neovim
-    firefox
-    hyprland
     kitty
     fuzzel
     ripgrep
@@ -115,17 +113,8 @@
     cameractrls
     tinymist
     websocat
-    hyprland-protocols
-    hyprwayland-scanner
-    hyprutils
-    hyprgraphics
-    hyprlang
-    hyprcursor
-    aquamarine
-    xdg-desktop-portal-hyprland
     hyprwire
     hyprtoolkit
-    hyprland
     bibata-cursors
     unzip
     lazygit
@@ -136,8 +125,6 @@
       flavor = "mocha";
       disableBackground = true;
     })
-    xwayland
-    gamescope
     cargo
     rustc
     xfce.thunar
@@ -150,11 +137,9 @@
     qmk
     dos2unix
     claude-code
-    hyprland
     hyprlandPlugins.hyprsplit
     protonvpn-gui
     heroic
-    input-remapper
     ghostty
   ];
   fonts.packages = with pkgs; [
@@ -320,6 +305,8 @@
   services.blueman.enable = true;
   programs.niri.enable = true;
   programs.sway.enable = true;
+  programs.gamescope.enable = true;
+  services.input-remapper.enable = true;
 
   hardware.keyboard.qmk.enable = true;
 
