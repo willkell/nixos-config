@@ -34,9 +34,8 @@
       nixpkgs,
       nixpkgs-unstable,
       home-manager,
-      dms, # can add this too if you want direct access
       ...
-    }@inputs: # <-- this captures all inputs as `inputs`
+    }@inputs:
     let
       system = "x86_64-linux";
       pkgs-unstable = import nixpkgs-unstable {

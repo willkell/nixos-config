@@ -62,12 +62,10 @@
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
     wget
-    pkgs-unstable.neovim
     kitty
     fuzzel
     ripgrep
     fd
-    kdePackages.sddm
     git
     gcc
     pciutils
@@ -102,7 +100,6 @@
     python3Packages.gpustat
     papirus-icon-theme # or adwaita-icon-theme
     mangowc
-    pkgs-unstable.claude-code-bin
     xwayland-satellite
     qmk
     dos2unix
@@ -115,7 +112,6 @@
   fonts.packages = with pkgs; [
     nerd-fonts.iosevka-term
     nerd-fonts.iosevka
-    greetd
   ];
 
   # hyprland
@@ -125,14 +121,6 @@
     xwayland.enable = true;
   };
 
-  # services.displayManager.sddm = {
-  #   package = pkgs.kdePackages.sddm;
-  #   enable = true;
-  #   wayland.enable = true;
-  #   autoNumlock = true;
-  #   # theme = "catppuccin-mocha-mauve";
-  #   enableHidpi = true;
-  # };
   programs.dank-material-shell.greeter = {
     enable = true;
     compositor.name = "hyprland";
@@ -158,16 +146,14 @@
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  # Force wayland when possible
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
-  # Fix disappearing cursor on Hyprland
-  environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    WLR_NO_HARDWARE_CURSORS = "1";
+  };
 
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = true;
-    powerManagement.finegrained = false;
     open = true;
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.latest;
@@ -180,12 +166,8 @@
   };
 
   # 1password
-  # Enables the 1Password CLI
-  programs._1password = {
-    enable = true;
-  };
+  programs._1password.enable = true;
 
-  # Enables the 1Password desktop app
   programs._1password-gui = {
     enable = true;
     polkitPolicyOwners = [ "wk" ];
@@ -278,9 +260,6 @@
   services.input-remapper.enable = true;
 
   hardware.keyboard.qmk.enable = true;
-
-
-  # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
