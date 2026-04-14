@@ -14,6 +14,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./cider.nix
     inputs.dms.nixosModules.greeter
   ];
 
@@ -281,6 +282,10 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
+  modules.cider = {
+    enable = true;
+    pkg = "cider-2";
+  };
   # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
   # and migrated your data accordingly.
   #
