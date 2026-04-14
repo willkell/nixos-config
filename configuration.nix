@@ -196,6 +196,9 @@
   security.pam.services.login.enableGnomeKeyring = true;
   security.pam.services.sddm.enableGnomeKeyring = true;
 
+  # chromium sandbox
+  security.chromiumSuidSandbox.enable = true;
+
   # ssh
   programs.ssh = {
     extraConfig = ''

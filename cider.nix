@@ -52,9 +52,9 @@ in
             install -m 444 -D ${contents}/Cider.desktop $out/share/applications/${pname}.desktop
             substituteInPlace $out/share/applications/${pname}.desktop \
               --replace-warn 'Exec=Cider' 'Exec=${pname}'
-install -Dm444 ${contents}/usr/share/icons/hicolor/256x256/apps/Cider.png \
-               $out/share/icons/hicolor/256x256/apps/cider.png
-            '';
+            install -Dm444 ${contents}/usr/share/icons/hicolor/256x256/apps/Cider.png \
+                           $out/share/icons/hicolor/256x256/apps/cider.png
+          '';
 
         meta = with lib; {
           description = "Powerful music player that allows you listen to your favorite tracks with style";
