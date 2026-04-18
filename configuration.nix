@@ -126,6 +126,7 @@
     protonvpn-gui
     heroic
     ghostty
+    ungoogled-chromium
   ];
   fonts.packages = with pkgs; [
     nerd-fonts.iosevka-term
