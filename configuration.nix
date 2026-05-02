@@ -127,6 +127,9 @@
     heroic
     ghostty
     ungoogled-chromium
+    ryubing
+    pkgs-unstable.librepods
+    zathura
   ];
   fonts.packages = with pkgs; [
     nerd-fonts.iosevka-term
