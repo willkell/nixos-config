@@ -16,6 +16,7 @@
     pkgs.httpie
   ];
   programs.bash.enable = true;
+  programs.zsh.enable = true;
 
   programs.dank-material-shell = {
     enable = true;
@@ -58,11 +59,12 @@
   programs.zoxide = {
     enable = true;
     enableBashIntegration = true;
+    enableZshIntegration = true;
   };
   programs.eza = {
     enable = true;
     colors = "always";
-    enableBashIntegration = true;
+    enableZshIntegration = true;
     icons = "auto";
   };
   programs.bat = {

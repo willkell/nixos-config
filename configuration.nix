@@ -49,6 +49,7 @@
     pulse.enable = true;
   };
 
+  programs.zsh.enable = true;
   # xdg portal, let apps open websites
   xdg.portal = {
     enable = true;
@@ -72,6 +73,7 @@
     packages = with pkgs; [
       tree
     ];
+    shell = pkgs.zsh;
   };
 
   programs.firefox.enable = true;
@@ -130,6 +132,7 @@
     ryubing
     pkgs-unstable.librepods
     zathura
+    go
   ];
   fonts.packages = with pkgs; [
     nerd-fonts.iosevka-term
