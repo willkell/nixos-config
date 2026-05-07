@@ -55,7 +55,14 @@
     enable = true;
     xdgOpenUsePortal = true;
     config.common.default = "*";
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [
+      pkgs.xdg-desktop-portal-wlr
+      pkgs.xdg-desktop-portal-gtk
+    ];
+    config.niri.default = [
+      "wlr"
+      "gtk"
+    ];
   };
 
   # Enable CUPS to print documents.
@@ -133,6 +140,7 @@
     pkgs-unstable.librepods
     zathura
     go
+    vesktop
   ];
   fonts.packages = with pkgs; [
     nerd-fonts.iosevka-term
