@@ -30,7 +30,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_6_12;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "nixos"; # Define your hostname.
 
@@ -56,7 +56,7 @@
     xdgOpenUsePortal = true;
     config.common.default = "*";
     extraPortals = [
-      pkgs.xdg-desktop-portal-wlr
+      pkgs.xdg-desktop-portal-luminous
       pkgs.xdg-desktop-portal-gtk
     ];
     config.niri.default = [
