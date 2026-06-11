@@ -141,6 +141,7 @@
     zathura
     go
     vesktop
+    orca-slicer
   ];
   fonts.packages = with pkgs; [
     nerd-fonts.iosevka-term
