@@ -20,8 +20,29 @@
     pkgs.lua5_1
     pkgs.lua51Packages.luarocks
   ];
+  home.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    WLR_NO_HARDWARE_CURSORS = "1";
+  };
+
   programs.bash.enable = true;
   programs.zsh.enable = true;
+
+  programs.git = {
+    enable = true;
+    userName = "Will Kelley";
+    userEmail = "willkelley1202@gmail.com";
+    extraConfig.init.defaultBranch = "main";
+  };
+
+  programs.ssh = {
+    enable = true;
+    extraConfig = ''
+      Host *
+        IdentityAgent ~/.1password/agent.sock
+        AddressFamily inet
+    '';
+  };
 
   programs.dank-material-shell = {
     enable = true;

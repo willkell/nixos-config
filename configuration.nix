@@ -73,9 +73,6 @@
       "wheel"
       "mlocate"
     ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [
-      tree
-    ];
     shell = pkgs.zsh;
   };
 
@@ -92,7 +89,6 @@
     pciutils
     iosevka
     nodejs
-    btop
     tree-sitter
     lua
     gnumake
@@ -173,10 +169,6 @@
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-    WLR_NO_HARDWARE_CURSORS = "1";
-  };
 
   hardware.nvidia = {
     modesetting.enable = true;
@@ -208,14 +200,6 @@
   # chromium sandbox
   security.chromiumSuidSandbox.enable = true;
 
-  # ssh
-  programs.ssh = {
-    extraConfig = ''
-      Host *
-        IdentityAgent ~/.1password/agent.sock
-        AddressFamily inet
-    '';
-  };
 
   users.groups.plocate = { };
 
