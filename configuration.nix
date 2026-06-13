@@ -59,10 +59,6 @@
       pkgs.xdg-desktop-portal-luminous
       pkgs.xdg-desktop-portal-gtk
     ];
-    config.niri.default = [
-      "wlr"
-      "gtk"
-    ];
   };
 
   # Enable CUPS to print documents.
@@ -82,8 +78,6 @@
     ];
     shell = pkgs.zsh;
   };
-
-  programs.firefox.enable = true;
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
@@ -122,7 +116,7 @@
     })
     cargo
     rustc
-    xfce.thunar
+    thunar
     python3
     python3Packages.gpustat
     papirus-icon-theme # or adwaita-icon-theme
@@ -131,8 +125,7 @@
     qmk
     dos2unix
     claude-code
-    hyprlandPlugins.hyprsplit
-    protonvpn-gui
+    proton-vpn
     heroic
     ghostty
     ungoogled-chromium
@@ -301,11 +294,11 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  modules.cider = {
-    enable = true;
-    pkg = "cider-2";
-  };
-  # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
+  # modules.cider = {
+  #   enable = true;
+  #   pkg = "cider-2";
+  # };
+  # # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
