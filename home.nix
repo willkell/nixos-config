@@ -23,10 +23,17 @@
   home.sessionVariables = {
     NIXOS_OZONE_WL = "1";
     WLR_NO_HARDWARE_CURSORS = "1";
+    SSH_AUTH_SOCK = "/home/wk/.1password/agent.sock";
   };
 
+
   programs.bash.enable = true;
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    initExtra = ''
+      export SSH_AUTH_SOCK="$HOME/.1password/agent.sock"
+    '';
+  };
 
   programs.git = {
     enable = true;

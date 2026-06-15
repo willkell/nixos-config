@@ -130,37 +130,37 @@
     zathura
     go
     vesktop
-    orca-slicer
+    (pkgs.symlinkJoin {
+      name = "orca-slicer";
+      paths = [ pkgs.orca-slicer ];
+      buildInputs = [ pkgs.makeWrapper ];
+      postBuild = ''
+        wrapProgram $out/bin/orca-slicer \
+          --set LANG C \
+          --set LC_ALL C
+      '';
+    })
+    zelda64recomp
   ];
   fonts.packages = with pkgs; [
     nerd-fonts.iosevka-term
     nerd-fonts.iosevka
   ];
 
-  # hyprland
-  programs.hyprland = {
-    enable = true;
-    withUWSM = true;
-    xwayland.enable = true;
-  };
-
   programs.dank-material-shell.greeter = {
     enable = true;
-    compositor.name = "hyprland";
-    compositor.customConfig = ''
-      env = XCURSOR_THEME,Bibata-Modern-Classic
-      env = XCURSOR_SIZE,24
-
-      monitor = DP-5, preferred, auto, 1
-      monitor = DP-4, disable
-      monitor = HDMI-A-3, disable
-      misc {
-        disable_splash_rendering = true
-        disable_hyprland_logo = true
-      }
-    '';
+    compositor.name = "niri";
     configHome = "/home/wk";
   };
+
+  environment.etc."greetd/niri_overrides.kdl".text = ''
+    output "DP-1" {
+        off
+    }
+    output "HDMI-A-2" {
+        off
+    }
+  '';
 
   hardware.graphics = {
     enable = true;
